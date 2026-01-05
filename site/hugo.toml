@@ -1,0 +1,7 @@
+baseURL = "/"
+languageCode = "en-gb"
+title = "mhmblue"
+paginate = 10
+
+[params]
+  description = "mhmblue — notes on cloud, automation, and practical engineering."
