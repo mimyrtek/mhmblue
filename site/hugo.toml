@@ -3,5 +3,7 @@ languageCode = "en-gb"
 title = "mhmblue"
 paginate = 10
 
-[params]
-  description = "mhmblue — notes on cloud, automation, and practical engineering."
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+  page = ["HTML"]

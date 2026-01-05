@@ -6,9 +6,4 @@ draft: false
 
 This is the first post.
 
-- Hugo builds static HTML
-- nginx serves it
-- Later Argo CD will deploy it to k8s
-
-
-# comment
+If you can see this page, Hugo built successfully inside Docker.

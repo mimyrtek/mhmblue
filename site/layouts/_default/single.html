@@ -1,0 +1,8 @@
+{{ define "main" }}
+<a href="/">← Home</a>
+<h1>{{ .Title }}</h1>
+<p style="color:#666;">{{ .Date.Format "2006-01-02 15:04" }}</p>
+<article>
+  {{ .Content }}
+</article>
+{{ end }}
