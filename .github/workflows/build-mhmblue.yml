@@ -3,9 +3,9 @@ name: build-mhmblue-image
 on:
   push:
     branches: ["main"]
-    paths:
-      - "mhmblue/**"
-      - ".github/workflows/build-mhmblue.yml"
+   #paths:
+   #   - "mhmblue/**"
+   #   - ".github/workflows/build-mhmblue.yml"
   workflow_dispatch: {}
 
 permissions:
