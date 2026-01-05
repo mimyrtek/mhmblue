@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ site.Title }}</title>
+</head>
+<body style="max-width:900px;margin:40px auto;font-family:system-ui;">
+  <h1>{{ site.Title }}</h1>
+  <p>Latest posts:</p>
+  <ul>
+    {{ range first 10 site.RegularPages }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
+</body>
+</html>

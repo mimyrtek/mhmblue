@@ -4,15 +4,22 @@ WORKDIR /src
 
 COPY site/ /src/
 
-# Print useful debug, then run Hugo.
-# If Hugo fails, the logs will show WHY in GitHub Actions.
-RUN echo "=== /src tree ===" && \
-    (find /src -maxdepth 3 -type f -print || true) && \
-    echo "=== hugo version ===" && \
-    hugo version && \
-    echo "=== hugo config ===" && \
-    (ls -la /src/config.* /src/hugo.* 2>/dev/null || true) && \
-    echo "=== hugo build ===" && \
+# 1) Show what actually got copied
+RUN echo "=== /src tree (maxdepth 4) ===" && \
+    find /src -maxdepth 4 -type f -print
+
+# 2) Show Hugo version
+RUN echo "=== hugo version ===" && \
+    hugo version
+
+# 3) Show config files present
+RUN echo "=== hugo config files ===" && \
+    ls -la /src || true && \
+    ls -la /src/config.* 2>/dev/null || true && \
+    ls -la /src/hugo.* 2>/dev/null || true
+
+# 4) Run build (this is the step that fails; now you’ll see the real Hugo error above it)
+RUN echo "=== hugo build ===" && \
     hugo --minify --logLevel debug --printPathWarnings --printI18nWarnings --templateMetrics
 
 # ---- Serve with nginx ----
