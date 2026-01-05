@@ -2,13 +2,11 @@
 FROM hugomods/hugo:exts AS build
 WORKDIR /src
 
+# Copy Hugo project
 COPY site/ /src/
 
-# Show config + list files, then build. If it fails you'll see why in GitHub logs.
-RUN ls -la /src && \
-    (test -f /src/hugo.toml || test -f /src/config.toml || test -f /src/config.yaml || test -f /src/config.yml) && \
-    hugo version && \
-    hugo --minify --logLevel info --printI18nWarnings --printPathWarnings --printUnusedTemplates
+# Build site (fail with real Hugo error if broken)
+RUN hugo --minify
 
 # ---- Serve with nginx ----
 FROM nginx:1.27-alpine
