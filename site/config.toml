@@ -1,4 +1,6 @@
 baseURL = "/"
 languageCode = "en-gb"
 title = "mhmblue"
-paginate = 10
+
+[pagination]
+  pagerSize = 10
